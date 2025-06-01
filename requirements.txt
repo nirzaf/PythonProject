@@ -1,8 +1,4 @@
 PyQt6==6.5.3
-requests==2.31.0
-beautifulsoup4==4.12.2
-vpython==7.6.4
-pygame
 hl7conv2>=0.1.0
 
 # External dependencies (not Python packages)

@@ -53,19 +53,34 @@ class HL7Converter:
     @staticmethod
     def convert_hl7_to_json(hl7_message: str) -> Tuple[Optional[Dict[str, Any]], Optional[str]]:
         """
-        Convert a single HL7 message to JSON format.
+        Convert a single HL7 message to JSON format, extracting only OBX segments.
 
         Args:
             hl7_message: HL7 message string
 
         Returns:
-            Tuple of (JSON object or None, error message or None)
+            Tuple of (JSON object with only OBX segments or None, error message or None)
         """
         try:
             # Use hl7conv2 to convert the message
             hl7_obj = Hl7Json(hl7_message)
-            json_data = hl7_obj.hl7_json
-            return json_data, None
+            full_json_data = hl7_obj.hl7_json
+
+            # Extract only OBX segments
+            obx_segments = []
+
+            # The hl7conv2 library returns a list of segments
+            for segment in full_json_data:
+                # Check if this is an OBX segment
+                if segment.get("segment_name") == "OBX":
+                    obx_segments.append(segment)
+
+            # Create a new JSON object with only OBX segments
+            obx_json_data = {
+                "OBX_segments": obx_segments
+            }
+
+            return obx_json_data, None
         except Exception as e:
             return None, str(e)
 

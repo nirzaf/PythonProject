@@ -10,7 +10,7 @@ from main import HL7Converter
 def main():
     """Test the HL7 to JSON converter with a sample message"""
     # Sample HL7 message from the MD file
-    sample_message = """MSH|^~\&|Millennium|HMC|RHAPSODY_ADT|HMC|20250601083201||ADT^A31|Q8818940207T16062243286|P|2.3||||||8859/1
+    sample_message = r"""MSH|^~\&|Millennium|HMC|RHAPSODY_ADT|HMC|20250601083201||ADT^A31|Q8818940207T16062243286|P|2.3||||||8859/1
 EVN|A31|20250601083201|||MCHANDA^Chanda^Mahanteshwar^^^Mr.^^^CCV Username^Personnel^^^USERID^""
 PID|1||HC09193054^^^MRN^MR^""||QAT^HOMECARETEST^^^^^official||19800508|male||National|^^^""^^Qatar^Home^^""~^^^""^^""^Birth^^""~mahanteshportal11@gmail.com^^^""^^""^E-mail^^""||333333^Pager personal^""~||Arabic|Married|""||28675678654|||||||||Qatari
 PV1||

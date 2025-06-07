@@ -1,5 +1,7 @@
 PyQt6==6.5.3
 hl7conv2>=0.1.0
+pandas
+openpyxl
 
 # External dependencies (not Python packages)
 # FFmpeg - Required for mkv_to_mp4_converter.py
